@@ -1,0 +1,34 @@
+{
+  "name": "CoBrowse",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Collaboratively surf the web. ",
+  "content_scripts":[
+    {
+        "matches": [ "http://*/*", "https://*/*", "*://*/*" ],
+        "js": ["jquery.js", "socket.io.js", "inject.js"],
+        "run_at": "document_start"
+    }
+  ],
+  "browser_action": {
+    "default_icon": {                    // optional
+      "19": "images/button.png",           // optional
+      "38": "images/button.png"            // optional
+    },
+    "default_title": "Start real time browsing"      // optional; shown in tooltip
+  },
+  "background": {
+      "scripts": ["socket.io.js", "jquery.js", "background.js"],
+      "persistent": true
+  },
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "permissions": [
+    "tabs",
+    "<all_urls>"
+  ]
+}
+

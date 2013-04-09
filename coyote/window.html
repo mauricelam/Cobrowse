@@ -1,0 +1,19 @@
+<script src="http://127.0.0.1:3100/socket.io/socket.io.js"></script>
+   <!-- HTML layout for the chat window -->
+   <div id = "chat">
+      hi
+   </div>
+
+   <script>
+
+      var socket = io.connect('http://127.0.0.1:3100');
+      
+      socket.emit('id', {id:1});
+      socket.on('init', function(data){
+         alert(data);
+      })
+      socket.on('error', function(data){
+         alert(data.id);
+      })
+      
+   </script>
